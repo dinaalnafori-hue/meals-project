@@ -1,0 +1,417 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>قائمة الوجبات</title>
+
+<style>
+    body {
+        font-family: "Tahoma", sans-serif;
+        background: linear-gradient(to bottom, #f0f6ff, #dbe9ff);
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1 {
+        color: #1a4c7c;
+        margin-bottom: 25px;
+        font-size: 32px;
+    }
+
+    table {
+        width: 90%;
+        margin: auto;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
+    th {
+        background: #1a4c7c;
+        color: white;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    td {
+        padding: 12px;
+        border-bottom: 1px solid #dce6f5;
+        font-size: 15px;
+    }
+
+    tr:hover {
+        background: #eaf2ff;
+    }
+
+    button {
+        background: #1a4c7c;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 14px;
+    }
+
+    button:hover {
+        background: #163f68;
+        transform: scale(1.03);
+    }
+
+    .details-row {
+        display: none;
+        background: #ffffff;
+    }
+
+    .details-box {
+        text-align: right;
+        padding: 20px;
+        line-height: 1.8;
+    }
+
+    .details-box strong {
+        color: #1a4c7c;
+    }
+
+    .details-box img {
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+    .next-btn {
+        background: #1a4c7c;
+        color: white;
+        padding: 12px 28px;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 25px;
+    }
+    
+    .next-btn:hover {
+        background: #163f68;
+        transform: scale(1.05);
+    }
+</style>
+
+</head>
+<body>
+
+<h1>قائمة الوجبات</h1>
+
+<table>
+    <tr>
+        <th>الرمز</th>
+        <th>الوجبة</th>
+        <th>السعر</th>
+        <th>إظهار التفاصيل</th>
+        <th>اختيار</th>
+    </tr>
+
+    <!-- الإمارات -->
+    <tr>
+        <td>SF-001</td>
+        <td>المجبوس الإماراتي</td>
+        <td>60 ليرة سورية</td>
+        <td><button onclick="toggleDetails('row1')">إظهار التفاصيل</button></td>
+        <td><input type="checkbox"></td>
+    </tr>
+    <tr id="row1" class="details-row">
+        <td colspan="5">
+            <div class="details-box">
+                <img src="images/uae.jpg" width="220"><br>
+                <strong>المطبخ:</strong> الإمارات<br>
+                <strong>تصنيف الطعام:</strong> أرزيات – دجاج – مأكولات خليجية<br><br>
+                <strong>المكونات:</strong>
+                <ul>
+                    <li>أرز بسمتي</li>
+                    <li>دجاج مشوي</li>
+                    <li>الزعفران</li>
+                    <li>البهارات</li>
+                    <li>الزيت</li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+
+    <!-- مصر -->
+    <tr>
+        <td>SF-002</td>
+        <td>الكشري المصري</td>
+        <td>75 ليرة سورية</td>
+        <td><button onclick="toggleDetails('row2')">إظهار التفاصيل</button></td>
+        <td><input type="checkbox"></td>
+    </tr>
+    <tr id="row2" class="details-row">
+        <td colspan="5">
+            <div class="details-box">
+                <img src="images/egypt.jpg" width="220"><br>
+                <strong>المطبخ:</strong> مصر<br>
+                <strong>تصنيف الطعام:</strong> نباتي – بقوليات – وجبة شعبية<br><br>
+                <strong>المكونات:</strong>
+                <ul>
+                    <li>أرز</li>
+                    <li>عدس</li>
+                    <li>مكرونة</li>
+                    <li>حمص</li>
+                    <li>صلصة طماطم</li>
+                    <li>بصل مقلي</li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+
+    <!-- البحرين -->
+    <tr>
+        <td>SF-003</td>
+        <td>القوزي البحريني</td>
+        <td>50 ليرة سورية</td>
+        <td><button onclick="toggleDetails('row3')">إظهار التفاصيل</button></td>
+        <td><input type="checkbox"></td>
+    </tr>
+    <tr id="row3" class="details-row">
+        <td colspan="5">
+            <div class="details-box">
+                <img src="images/bahrain.jpg" width="220"><br>
+                <strong>المطبخ:</strong> البحرين<br>
+                <strong>تصنيف الطعام:</strong> أرزيات – لحوم – مأكولات خليجية<br><br>
+                <strong>المكونات:</strong>
+                <ul>
+                    <li>أرز بسمتي</li>
+                    <li>لحم/دجاج</li>
+                    <li>بهارات بحرينية</li>
+                    <li>بصل</li>
+                    <li>زيت</li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+
+    <!-- أستراليا -->
+    <tr>
+        <td>SF-004</td>
+        <td>اللحم الأسترالي المشوي</td>
+        <td>115 ليرة سورية</td>
+        <td><button onclick="toggleDetails('row4')">إظهار التفاصيل</button></td>
+        <td><input type="checkbox"></td>
+    </tr>
+    <tr id="row4" class="details-row">
+        <td colspan="5">
+            <div class="details-box">
+                <img src="images/australia.jpg" width="220"><br>
+                <strong>المطبخ:</strong> أستراليا<br>
+                <strong>تصنيف الطعام:</strong> لحوم – مشويات<br><br>
+                <strong>المكونات:</strong>
+                <ul>
+                    <li>لحم بقري</li>
+                    <li>ملح وفلفل</li>
+                    <li>بهارات مشويات</li>
+                    <li>زيت</li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+
+    <!-- ألمانيا -->
+    <tr>
+        <td>SF-005</td>
+        <td>السجق الألماني</td>
+        <td>35 ليرة سورية</td>
+        <td><button onclick="toggleDetails('row5')">إظهار التفاصيل</button></td>
+        <td><input type="checkbox"></td>
+    </tr>
+    <tr id="row5" class="details-row">
+        <td colspan="5">
+            <div class="details-box">
+                <img src="images/germany.jpg" width="220"><br>
+                <strong>المطبخ:</strong> ألمانيا<br>
+                <strong>تصنيف الطعام:</strong> لحوم – نقانق – وجبة سريعة<br><br>
+                <strong>المكونات:</strong>
+                <ul>
+                    <li>نقانق ألمانية</li>
+                    <li>خردل</li>
+                    <li>خبز</li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+
+    <!-- سوريا -->
+    <tr>
+        <td>SF-006</td>
+        <td>الكبة المقلية</td>
+        <td>20 ليرة سورية</td>
+        <td><button onclick="toggleDetails('row6')">إظهار التفاصيل</button></td>
+        <td><input type="checkbox"></td>
+    </tr>
+    <tr id="row6" class="details-row">
+        <td colspan="5">
+            <div class="details-box">
+                <img src="images/syria.jpg" width="220"><br>
+                <strong>المطبخ:</strong> سوريا<br>
+                <strong>تصنيف الطعام:</strong> لحوم – مقليات – مقبلات<br><br>
+                <strong>المكونات:</strong>
+                <ul>
+                    <li>برغل</li>
+                    <li>لحم مفروم</li>
+                    <li>صنوبر</li>
+                    <li>بهارات</li>
+                    <li>زيت للقلي</li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+
+    <!-- أمريكا -->
+    <tr>
+        <td>SF-007</td>
+        <td>البرغر الأمريكي</td>
+        <td>60 ليرة سورية</td>
+        <td><button onclick="toggleDetails('row7')">إظهار التفاصيل</button></td>
+        <td><input type="checkbox"></td>
+    </tr>
+    <tr id="row7" class="details-row">
+        <td colspan="5">
+            <div class="details-box">
+                <img src="images/usa.jpg" width="220"><br>
+                <strong>المطبخ:</strong> أمريكا<br>
+                <strong>تصنيف الطعام:</strong> لحوم – وجبة سريعة – سندويتشات<br><br>
+                <strong>المكونات:</strong>
+                <ul>
+                    <li>لحم بقري</li>
+                    <li>خبز برغر</li>
+                    <li>جبن</li>
+                    <li>خس</li>
+                    <li>صلصات</li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+
+</table>
+
+<!-- زر المتابعة -->
+<button class="next-btn" onclick="showForm()">متابعة</button>
+<!-- (نموذج الطلب مخفي) -->
+<div id="formBox" style="display:none;">
+    <h2>نموذج تقديم الطلب</h2>
+
+    <label>الاسم الكامل (اختياري):</label>
+    <input type="text" id="fullname"><br><br>
+
+    <label>رقم الحساب المصرفي (إجباري – 6 خانة):</label>
+    <input type="text" id="account"><br><br>
+
+    <label>تاريخ الطلب (اختياري – dd-mm-yyyy):</label>
+    <input type="text" id="requestdate"><br><br>
+
+    <label>رقم الموبايل (اختياري):</label>
+    <input type="text" id="mobile"><br><br>
+
+
+    <button class="next-btn" onclick="submitForm()">إرسال</button>
+</div>
+
+<!-- النتيجة -->
+<div id="resultBox"></div>
+
+<script>
+function toggleDetails(id) {
+    var row = document.getElementById(id);
+    row.style.display = (row.style.display === "table-row") ? "none" : "table-row";
+  
+}
+function showForm() {
+let anySelected = false;
+    document.querySelectorAll("table input[type='checkbox']").forEach(cb => {
+    if (cb.checked) anySelected = true;
+    });
+    if (!anySelected){
+    alert("يجب اختيار وجبة واحدة على الاقل قبل المتابعة");
+    return;
+    }
+    document.getElementById("formBox").style.display = "block"
+}
+
+function submitForm() {
+
+    let fullname = document.getElementById("fullname").value.trim();
+    let account = document.getElementById("account").value.trim();
+    let requestdate = document.getElementById("requestdate").value.trim();
+    let mobile = document.getElementById("mobile").value.trim();
+
+    if (account.length !== 6 || isNaN(account)) {
+        alert("رقم الحساب لمصرفي يجب أن يكون 6 خانات رقمية");
+        return;
+    }
+
+    let englishName = /^[A-za-z]+ [A-Za-z]+$/;
+    if (fullname !== "" && !englishName.test(fullname)) {
+        alert("الاسم يجب أن يكون باللغة الانجليزية ويتكون من اسم وكنية مع فراغ واحد بينهما");
+        return;
+    }
+
+    let date = /^\d{2}-\d{2}-\d{4}$/;
+    if (requestdate !== "" && !date.test(requestdate)) {
+        alert("تاريخ الطلب يجب أن يكون dd-mm-yyyy");
+        return;
+    }
+
+    let mobileRegex = /^09\d{8}$/;
+    if (mobile !== "" && !mobileRegex.test(mobile)) {
+        alert("رقم الموبايل غير صحيح");
+        return;
+    }
+
+   
+
+    let selected = [];
+    let total = 0;
+    document.querySelectorAll("table input[type='checkbox']").forEach(cb =>{
+    if (cb.checked) {
+    let row = cb.parentElement.parentElement;
+    let mealName = row.children[1].innerText;
+    let priceText = row.children[2].innerText.trim;
+    let price = parseFloat(priceText);
+    if(!isNaN(price)){
+    total += price
+    }
+    selected.push(mealName);
+    }
+    });
+
+    if (selected.length === 0) {
+        alert("يجب اختيار وجبة واحدة على الأقل");
+        return;
+    }
+    //% حساب الضريبة 10
+    let tax = total * 0.10;
+
+    // المبلغ الصافي بعد اضافة الضريبة 
+    let net = total + tax;
+
+    let box = document.getElementById("resultBox");
+    box.style.display = "block";
+    box.innerHTML = `;
+        <h3>تم إرسال الطلب بنجاح</h3>
+        <strong>الوجبات المختارة:</strong> ${selected.join(", ")}<br><br>
+        <strong>مجموع الاسعار :</strong> ${total.toFixed(2)}<br>
+        <strong>الضريبة(10%) :</strong> ${tax.toFixed(2)}<br>
+        <strong>المبلغ الصافي :</strong> ${net.toFixed(2)}<br><br>
+        <strong>الاسم:</strong> ${fullname || "(غير مدخل)"}<br>
+        <strong>رقم الحساب المصرفي:</strong> ${account}<br>
+        <strong>تاريخ الطلب:</strong> ${requestdate || "(غير مدخل)"}<br>
+        <strong>رقم الموبايل:</strong> ${mobile || "(غير مدخل)"}<br>
+        
+    `;
+}
+</script>
+
+</body>
+</html>
